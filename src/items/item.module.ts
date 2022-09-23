@@ -1,5 +1,6 @@
-import { Module } from "@nestjs/common";
+import { Module ,MiddlewareConsumer } from "@nestjs/common";
 import { ItemController } from "./item.controller";
+import { ItemMiddleware } from "./item.middleware";
 import { ItemService } from "./item.service";
 
 
@@ -8,4 +9,9 @@ controllers:[ItemController],
 providers:[ItemService],
 })
 
-export class ItemModule{}
+export class ItemModule{
+configure(consumer: MiddlewareConsumer){
+    consumer.apply(ItemMiddleware).forRoutes('item','get');
+}
+
+}
