@@ -1,0 +1,8 @@
+
+type Query{
+    getData:[String]
+}
+
+type Query{
+    print:String
+}
