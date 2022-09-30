@@ -2,8 +2,8 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Esers', {
-      id: {
-        allowNull: false,
+      uid: {
+       
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -12,17 +12,17 @@ module.exports = {
         type: Sequelize.STRING
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.ENUM('FIRST','SECOND','THIRD')
       },
       email: {
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: false,
+        
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        
         type: Sequelize.DATE
       }
     });
